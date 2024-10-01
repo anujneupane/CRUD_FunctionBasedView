@@ -1,0 +1,60 @@
+
+<html>
+    {% load static %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Python fee</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{%  static 'fee/css/style.css'%}" />
+        <script src="{% static 'js/all.js' %}"> </script>
+    </head>
+    <body>
+
+       <h1>
+        cource name :  {{nm}} <br> 
+        fee : {{fe}} <br>
+        Time : {{time}} <br>
+        Seat : {{st}}  <br>
+        Time : {{dt}}
+        </h1>
+        {% if nm and time %}
+        <h1> {{nm}} couce will run for {{time}} </h1>
+        {% endif %}
+
+        {%if not st %}
+        <h1> soory yaar sakeyo seat </h1>
+        {% endif %}
+
+        {% if nm|length >= 4 %}
+        <h1> Hello {{nm}}</h1>
+        {% else %}
+        <h1> No data found {{nm}}</h1>
+        {% endif %}
+
+        {% if nm %}
+        <h1> Hello {{nm}}</h1>
+        {% elif st %}
+        <h1> seats {{st}} </h1>
+        {% else %}
+        <h1> No seat for the  course available </h1>
+        {% endif %}
+
+        <h1> {{student}} </h1>
+   
+        <h1>
+            {% for key, value in student.stu1.items %}
+                 {{key}} -- {{value}}
+                 <br>
+            {% endfor %}
+        </h1>
+    
+        <img src ="{% static 'fee/image/a5.jpg' %}" alt ='pic1' class="pic"/>
+        <img src ="{% get_static_prefix %}fee/image/a5.jpg" alt ='pic1' />
+        
+        
+ 
+        <script src="" async defer></script>
+    </body>
+</html>
