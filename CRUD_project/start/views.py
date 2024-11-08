@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponseRedirect
+from django.contrib import messages
 from .form import Student
 from .models import user
 # Create your views here.
@@ -7,6 +8,7 @@ def Add(request):
         fm = Student(request.POST)
         if fm.is_valid():
             fm.save()
+            messages.add_message(request,messages.SUCCESS,'New Data Added')
             fm = Student()
     else:
         fm = Student()
@@ -26,6 +28,7 @@ def update(request,id):
         fm = Student(request.POST,instance=pi)
         if fm.is_valid():
             fm.save()
+            return HttpResponseRedirect('/')
     else:
         pi = user.objects.get(pk=id)
         fm = Student(instance = pi)
